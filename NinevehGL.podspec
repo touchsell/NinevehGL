@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/NinevehGL/NinevehGL.git", :tag => s.version, :submodules => true }
   s.social_media_url = 'https://twitter.com/ninevehgl'
 
-  s.requires_arc = false
+  s.requires_arc = true
   s.ios.deployment_target = '7.0'
 
   s.subspec 'Core' do |ss|
