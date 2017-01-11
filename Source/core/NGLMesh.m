@@ -278,7 +278,9 @@ static void emptyCoreMesh(id <NGLCoreMesh> coreMesh)
 		_delegateClass = [_delegate class];
 		
 		[self defineDelegate];
-	}
+    }else if (value == nil) {
+        _delegate = value;
+    }
 }
 
 - (NSString *) fileNamed { return _fileNamed; }
@@ -665,7 +667,7 @@ static void emptyCoreMesh(id <NGLCoreMesh> coreMesh)
 		dispatch_async(dispatch_get_main_queue(), ^(void)
 		{
             NGLMesh *safeSelf = weakSelf;
-            if( safeSelf ){
+            if( safeSelf && safeSelf.delegate ){
                 ((id (*)(id, SEL, NGLParsing))objc_msgSend)(safeSelf.delegate, selector, safeSelf.parsing);
             }
 		});
