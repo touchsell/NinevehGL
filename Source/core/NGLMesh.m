@@ -667,7 +667,7 @@ static void emptyCoreMesh(id <NGLCoreMesh> coreMesh)
 		dispatch_async(dispatch_get_main_queue(), ^(void)
 		{
             NGLMesh *safeSelf = weakSelf;
-            if( safeSelf && safeSelf.delegate ){
+            if( safeSelf ){
                 ((id (*)(id, SEL, NGLParsing))objc_msgSend)(safeSelf.delegate, selector, safeSelf.parsing);
             }
 		});
