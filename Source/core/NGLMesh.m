@@ -278,7 +278,9 @@ static void emptyCoreMesh(id <NGLCoreMesh> coreMesh)
 		_delegateClass = [_delegate class];
 		
 		[self defineDelegate];
-	}
+    }else if (value == nil) {
+        _delegate = value;
+    }
 }
 
 - (NSString *) fileNamed { return _fileNamed; }
