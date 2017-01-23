@@ -731,7 +731,16 @@ static UInt32 creaseAngle(UInt32 index,
 				// Retrieves the element index in the array of faces.
 				eIndex = _faces[faceIndex + (*element).offsetInFace];
 				eStart = (*element).start;
-				
+				if (eIndex == (UInt32)(-1))
+        			{
+        				lengthJ = (*element).length;
+            				for (j = 0; j < lengthJ; ++j)
+            				{
+            					outStructure[eStart + j] = 0.0f;
+                				++_sCount;
+            				}
+        			}
+
 				// Sets the pointer to correct original array.
 				switch ((*element).component)
 				{
